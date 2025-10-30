@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comments Page - Colegio</title>
+<style>
+ body {font-family: Arial, sans-serif;background: #f2f6ff;margin:0;padding:0;}
+ header {background:#003366;color:white;padding:15px;text-align:center;}
+ h2 {color:#003366;}
+ .container {width:90%;max-width:600px;margin:auto;background:white;padding:20px;margin-top:20px;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+ textarea {width:100%;height:120px;margin-bottom:10px;}
+ button {background:#003366;color:white;border:none;padding:10px;width:100%;border-radius:5px;cursor:pointer;}
+ button:hover {background:#002244;}
+ .comment-box {background:#e8eefc;padding:10px;margin-top:10px;border-radius:6px;}
+</style>
+</head>
+<body>
+
+<header><h1>Página de Comentarios</h1></header>
+
+<div class="container">
+ <h2>Escribe tu comentario</h2>
+ <textarea id="commentInput" placeholder="Escribe algo..."></textarea>
+ <button onclick="addComment()">Enviar</button>
+ <h2>Comentarios:</h2>
+ <div id="commentsSection"></div>
+</div>
+
+<script>
+function addComment(){
+ var text=document.getElementById("commentInput").value;
+ if(text.trim()==="")return;
+ var div=document.createElement("div");
+ div.className="comment-box";
+ div.innerText=text;
+ document.getElementById("commentsSection").appendChild(div);
+ document.getElementById("commentInput").value="";
+}
+</script>
+</body>
+</html>
